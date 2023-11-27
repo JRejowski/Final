@@ -1,0 +1,41 @@
+.base{
+    background-color: #242526;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.icon{
+    font-size: 3em;
+    color:#E4E6EB;
+    margin-right: 0.5em;
+}
+.logo{
+    color:#E4E6EB;
+    font-size: 5em;
+    margin:0.2em;
+}
+ul{
+    display: flex;
+    list-style-type: none;
+}
+ul>li{
+    margin:auto 1em;
+    display: flex;
+}
+.button{
+    font-family: "Cooper Black", sans-serif ;
+    border: 1px solid #E4E6EB;
+    border-radius: 1em;
+    text-align: center;
+    color: #E4E6EB;
+    padding: 0.8em 0.5em;
+    width: 80%;
+}
+.name{
+    display: flex;
+    align-items: center;
+}
+.name>h1{
+    font-family: "Cooper Black", sans-serif ;
+    color:#E4E6EB;
+}

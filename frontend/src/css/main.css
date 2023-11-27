@@ -1,0 +1,14 @@
+.base-container{
+    background-color: #18191A;
+    height: 100vh;
+}
+.content{
+    height: 80%;
+}
+
+.content>h1{
+    font-family: "Cooper Black", sans-serif ;
+    color: #E4E6EB;
+    text-align: center;
+}
+

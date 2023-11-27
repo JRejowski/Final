@@ -26,7 +26,7 @@ function RegisterContainer() {
                     type="password"
                     placeholder="repeat password"
                 />
-                <button id="register" type="submit">
+                <button id="registerButton" type="submit">
                     REGISTER
                 </button>
                 <Link id="non-registered-button" to="/login">

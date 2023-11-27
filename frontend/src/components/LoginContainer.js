@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import '../css/login.css'
 
 function LoginContainer() {
-    
+
     return (
-            <form>
+
+            <form className="login">
                 <input
                     name="email"
                     type="text"
@@ -14,7 +16,7 @@ function LoginContainer() {
                     type="password"
                     placeholder="password"
                 />
-                <button id="login" type="submit">LOGIN</button>
+                <button id="loginButton" type="submit">LOGIN</button>
                 <Link id="non-registered-button" to="/register">
                     Not registered? Register now!
                 </Link>

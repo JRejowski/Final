@@ -1,42 +1,48 @@
 .container{
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(119.15deg, #4e54c8 4.56%,#8f94fb 100%, rgba(47, 72, 88, 0) 100%, rgba(47, 72, 88, 0) 100%);
+    background-color: #18191A;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-form{
+.register{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 40%;
     height: 55vh;
-    background: #FFFFFF;
+    background: #242526;
     mix-blend-mode: normal;
     border-radius: 40px;
 }
 
-input
+.register>input
 {
+    color:#E4E6EB;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #E4E6EB;
     padding: 1.5em;
     margin: 1em;
     width: 70%;
 }
 
-#register{
-    background: mediumpurple;
+::placeholder{
+    color:#E4E6EB;
+}
+
+
+#registerButton{
+    background: #3A3B3C;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 19px;
     width: 50%;
     border:none;
-    color:black;
+    color:#E4E6EB;
     font-size: 1.5em;
     letter-spacing: 0.2em;
     margin-top: 1em;
@@ -48,6 +54,6 @@ input
     margin-top: 1em;
     background-color: transparent;
     border: none;
-    color:mediumblue;
+    color:#E4E6EB;
     text-decoration: underline;
 }
