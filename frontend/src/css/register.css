@@ -6,6 +6,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
 }
 
 .register{
@@ -19,6 +20,19 @@
     mix-blend-mode: normal;
     border-radius: 40px;
 }
+
+.logo-big{
+    color:#E4E6EB;
+    font-size: 12em;
+}
+
+.link-big{
+    font-family: "Cooper Black", sans-serif ;
+    color:#E4E6EB;
+    text-decoration: none;
+    font-size: 6em;
+}
+
 
 .register>input
 {
@@ -56,4 +70,10 @@
     border: none;
     color:#E4E6EB;
     text-decoration: underline;
+}
+.name-main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 3em;
 }

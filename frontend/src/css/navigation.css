@@ -35,7 +35,10 @@ ul>li{
     display: flex;
     align-items: center;
 }
-.name>h1{
+.link{
     font-family: "Cooper Black", sans-serif ;
     color:#E4E6EB;
+    text-decoration: none;
+    font-size: 3em;
+
 }

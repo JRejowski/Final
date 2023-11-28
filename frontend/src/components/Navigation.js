@@ -14,8 +14,8 @@ function Navigation() {
     return(
     <div className="base">
         <div className="name">
-        <FontAwesomeIcon icon={faDumbbell} className="logo"/>
-        <h1>GymPlaner</h1>
+            <Link to="/"><FontAwesomeIcon icon={faDumbbell} className="logo"/></Link>
+            <Link className="link" to="/">GymPlaner</Link>
         </div>
         <ul>
             <li>
@@ -28,7 +28,7 @@ function Navigation() {
             </li>
             <li>
                 <FontAwesomeIcon icon={faUser} className="icon" />
-                <Link className="button" to="/settings">User</Link>
+                <Link className="button" to="/user">User</Link>
             </li>
             <li>
                 <FontAwesomeIcon icon={faSignOutAlt} className="icon" />
