@@ -1,6 +1,6 @@
 import Navigation from "../components/Navigation";
-import axios from "axios";
-import {useEffect, useState} from "react";
+//import axios from "axios";
+//import {useEffect, useState} from "react";
 import '../css/exercises.css'
 
 function Exercises()

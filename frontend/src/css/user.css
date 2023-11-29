@@ -1,0 +1,31 @@
+
+.content-user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-buttons{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    justify-content: center;
+}
+.user-button{
+    background: transparent;
+    padding: 1em;
+    margin: 0.5em 0;
+    font-family: "Cooper Black", sans-serif ;
+    color: #E4E6EB;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid #E4E6EB;
+    border-radius: 1em;
+}
+
+
+.content-user>h1{
+    font-family: "Cooper Black", sans-serif ;
+    color: #E4E6EB;
+    text-align: center;
+}
+

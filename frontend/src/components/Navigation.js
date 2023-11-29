@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faClipboard,
     faDumbbell,
-    faSignOutAlt,
     faUser,
     faWeightHanging
 } from '@fortawesome/free-solid-svg-icons';
@@ -30,10 +29,7 @@ function Navigation() {
                 <FontAwesomeIcon icon={faUser} className="icon" />
                 <Link className="button" to="/user">User</Link>
             </li>
-            <li>
-                <FontAwesomeIcon icon={faSignOutAlt} className="icon" />
-                <Link className="button" to="/login">Logout</Link>
-            </li>
+
         </ul>
     </div>
     )
