@@ -1,56 +1,57 @@
-import Navigation from "../components/Navigation";
-//import axios from "axios";
-//import {useEffect, useState} from "react";
-import '../css/exercises.css'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Navigation from '../components/Navigation';
+import "../css/exercises.css"
+import {Link} from "react-router-dom";
 
-function Exercises()
-{
-    /*
-    const [exerciseList, setExerciseList] = useState([]);
+function Exercises() {
+    const [exercises, setExercises] = useState([]);
 
     useEffect(() => {
-        // Dodaj swój prywatny klucz do API
-       // const apiKey = 'ClHcoK1sCkiGzDa70V3FHw==HNfiD4A6A5NcDXtv';
-
-        // Definicja funkcji do pobierania danych z API
         const fetchData = async () => {
-            try {
-                // Ustawienie nagłówka z kluczem API
-                const headers = {
-                    'X-Api-Key': apiKey,
-                };
+            const options = {
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/exercises',
+                params: {
+                    type: 'strength',
+                    muscle: 'biceps',
+                    difficulty: 'intermediate'
+                },
+                headers: {
+                    'X-Api-Key': 'ClHcoK1sCkiGzDa70V3FHw==HNfiD4A6A5NcDXtv',
+                }
+            };
 
-                // Pobranie danych z API z użyciem nagłówka i parametru 'muscle'
-                const response = await axios.get(`https://api.api-ninjas.com/v1/exercises`, { headers });
-                setExerciseList(response.data); // Aktualizacja stanu z danymi z API
+            try {
+                const response = await axios.request(options);
+                setExercises(response.data);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching exercises:', error);
             }
         };
 
-        // Wywołanie funkcji do pobierania danych przy zamontowaniu komponentu
         fetchData();
-    }, []); // Muskel jest teraz zależnością useEffect, więc efekt zostanie ponownie uruchomiony przy zmianie wartości muscle
+    }, []);
 
-
-        <ul>
-                    {/* Mapowanie danych z API na elementy listy }
-        {exerciseList.map((exercise) => (
-    <li key={exercise.name}>{exercise.name}</li>
-        ))}
-    </ul>
-
-*/
-
-
-    return(
+    return (
         <div className="base-container">
-            <Navigation/>
+            <Navigation />
             <section className="content">
                 <h1>Exercises</h1>
-
+                <ul className="exercises-list">
+                    {exercises.map((exercise, index) => (
+                        <li key={index}>
+                            <p><strong>Name:</strong><Link className='exercise-link' to={`/exercises/${exercise.name}`}>{exercise.name}</Link> </p>
+                            <p><strong>Type:</strong> {exercise.type}</p>
+                            <p><strong>Muscle:</strong> {exercise.muscle}</p>
+                            <p><strong>Equipment:</strong> {exercise.equipment}</p>
+                            <p><strong>Difficulty:</strong> {exercise.difficulty}</p>
+                        </li>
+                    ))}
+                </ul>
             </section>
         </div>
-    )
+    );
 }
-export default Exercises
+
+export default Exercises;
