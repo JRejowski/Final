@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navigation from '../components/Navigation';
 import "../css/exercises.css"
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import MusclePicker from "../components/MusclePicker";
+import TypePicker from "../components/TypePicker";
+import DifficultyPicker from "../components/DifficultyPicker";
 
 function Exercises() {
     const [exercises, setExercises] = useState([]);
+    const [selectedMuscle, setSelectedMuscle] = useState(null);
+    const [selectedType, setSelectedType] = useState(null);
+    const [selectedDifficulty, setSelectedDifficulty] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -13,9 +19,9 @@ function Exercises() {
                 method: 'GET',
                 url: 'https://api.api-ninjas.com/v1/exercises',
                 params: {
-                    type: 'strength',
-                    muscle: 'biceps',
-                    difficulty: 'intermediate'
+                    type: selectedType || '',
+                    muscle: selectedMuscle || '',
+                    difficulty: selectedDifficulty || '',
                 },
                 headers: {
                     'X-Api-Key': 'ClHcoK1sCkiGzDa70V3FHw==HNfiD4A6A5NcDXtv',
@@ -31,13 +37,29 @@ function Exercises() {
         };
 
         fetchData();
-    }, []);
+    }, [selectedType, selectedMuscle, selectedDifficulty]);  // Dodaj zależności, aby useEffect reagował na zmiany w pickerach
+
+    const handleMuscleChange = (muscle) => {
+        setSelectedMuscle(muscle);
+    };
+    const handleTypeChange = (type) => {
+        setSelectedType(type);
+    };
+    const handleDifficultyChange = (difficulty) => {
+        setSelectedDifficulty(difficulty);
+    };
 
     return (
         <div className="base-container">
             <Navigation />
             <section className="content">
                 <h1>Exercises</h1>
+                <div className="pickers">
+                    <MusclePicker onMuscleChange={handleMuscleChange}></MusclePicker>
+                    <TypePicker onTypeChange={handleTypeChange}></TypePicker>
+                    <DifficultyPicker onDifficultyChange={handleDifficultyChange}></DifficultyPicker>
+                </div>
+
                 <ul className="exercises-list">
                     {exercises.map((exercise, index) => (
                         <li key={index}>

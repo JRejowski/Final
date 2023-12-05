@@ -1,0 +1,16 @@
+.exercise-details{
+    color: #E4E6EB;
+    margin: 0 1.5em;
+    font-family: "Cooper Black", sans-serif ;
+}
+.exercise-details>h2{
+    font-size: 3em;
+    text-align: center;
+}
+.exercise-details>p>strong{
+    font-size:1.5em;
+}
+
+.exercise-details>p{
+    font-size: 1.5em;
+}
