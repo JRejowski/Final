@@ -1,6 +1,8 @@
 import Navigation from "../components/Navigation";
 import PlanComponent from "../components/PlanComponent";
 import "../css/plans.css"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faClipboard} from "@fortawesome/free-solid-svg-icons";
 
 function Plans() {
 
@@ -8,7 +10,13 @@ function Plans() {
         <div className="base-container">
             <Navigation/>
             <div className="content">
-            <h1>Plans</h1>
+                <div className="top">
+                <h1>Plans</h1>
+                    <div className="new-plan">
+                        <h2>Create new plan</h2>
+                        <FontAwesomeIcon icon={faClipboard} className="icon-clipboard"/>
+                    </div>
+                </div>
             <section className="plans">
                 <PlanComponent name={"Bicep Day"} creator={"Tom"} likes={12} dislikes={15}></PlanComponent>
                 <PlanComponent name={"What a plan!"} creator={"Jack"} likes={24} dislikes={30}></PlanComponent>

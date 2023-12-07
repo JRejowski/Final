@@ -4,3 +4,41 @@
     grid-gap: 1.5em;
     margin: 1em;
 }
+
+.top {
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top>h1{
+    margin: 0 0 0 31.5em;
+    font-family: "Cooper Black", sans-serif ;
+    color: #E4E6EB;
+    text-align: center;
+}
+
+.icon-clipboard{
+    font-size: 3em;
+    color: #E4E6EB;
+    margin: 0 0.3em;
+
+}
+
+.new-plan{
+    display: flex;
+    align-items: center;
+    border:1px solid #E4E6EB;
+    border-radius: 1em;
+    padding: 0.2em;
+}
+
+.new-plan>h2{
+    font-family: "Cooper Black", sans-serif ;
+    color: #E4E6EB;
+}
+
+
+
+

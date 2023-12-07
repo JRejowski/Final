@@ -1,0 +1,12 @@
+input{
+    color: #E4E6EB;
+    border: 1px solid #E4E6EB;
+    border-radius: 1em;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

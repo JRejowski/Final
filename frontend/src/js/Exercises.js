@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import MusclePicker from "../components/MusclePicker";
 import TypePicker from "../components/TypePicker";
 import DifficultyPicker from "../components/DifficultyPicker";
+import SearchBar from "../components/SearchBar";
 
 function Exercises() {
     const [exercises, setExercises] = useState([]);
@@ -54,6 +55,7 @@ function Exercises() {
             <Navigation />
             <section className="content">
                 <h1>Exercises</h1>
+                <SearchBar></SearchBar>
                 <div className="pickers">
                     <MusclePicker onMuscleChange={handleMuscleChange}></MusclePicker>
                     <TypePicker onTypeChange={handleTypeChange}></TypePicker>
