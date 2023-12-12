@@ -13,6 +13,8 @@ function Exercises() {
     const [selectedMuscle, setSelectedMuscle] = useState(null);
     const [selectedType, setSelectedType] = useState(null);
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
+    const [name, setName] = useState(null);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,6 +22,7 @@ function Exercises() {
                 method: 'GET',
                 url: 'https://api.api-ninjas.com/v1/exercises',
                 params: {
+                    name: name || '',
                     type: selectedType || '',
                     muscle: selectedMuscle || '',
                     difficulty: selectedDifficulty || '',
@@ -38,7 +41,7 @@ function Exercises() {
         };
 
         fetchData();
-    }, [selectedType, selectedMuscle, selectedDifficulty]);  // Dodaj zależności, aby useEffect reagował na zmiany w pickerach
+    }, [name, selectedType, selectedMuscle, selectedDifficulty]);  // Dodaj zależności, aby useEffect reagował na zmiany w pickerach
 
     const handleMuscleChange = (muscle) => {
         setSelectedMuscle(muscle);
@@ -50,12 +53,17 @@ function Exercises() {
         setSelectedDifficulty(difficulty);
     };
 
+    const handleNameChange = (name) => {
+        setName(name);
+    };
+
+
     return (
         <div className="base-container">
             <Navigation />
             <section className="content">
                 <h1>Exercises</h1>
-                <SearchBar></SearchBar>
+                <SearchBar onNameChange={handleNameChange}></SearchBar>
                 <div className="pickers">
                     <MusclePicker onMuscleChange={handleMuscleChange}></MusclePicker>
                     <TypePicker onTypeChange={handleTypeChange}></TypePicker>
