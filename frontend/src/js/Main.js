@@ -6,7 +6,7 @@ function Main(){
         <div className="base-container">
             <Navigation/>
             <section className="content">
-                <h1>Working working...</h1>
+                <h1>Welcome to GymPlaner!</h1>
             </section>
         </div>
     );

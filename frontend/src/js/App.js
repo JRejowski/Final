@@ -8,6 +8,7 @@ import User from "./User";
 import Settings from "./Settings";
 import UserPlans from "./UserPlans";
 import Exercise from "./Exercise";
+import Plan from "./Plan"
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route path="/user" element={<User/>}/>
             <Route path="/user-settings" element={<Settings/>}/>
             <Route path="/user-plans" element={<UserPlans/>}/>
+            <Route path="/plan/:id" element={<Plan/>}/>
+
         </Routes>
       </BrowserRouter>
   );
