@@ -3,13 +3,16 @@ package com.example.backend.plan_details;
 import com.example.backend.plan.Plan;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
+@Table(name = "plan_details")
 public class PlanDetails {
 
     @Id
@@ -25,6 +28,4 @@ public class PlanDetails {
     private int sets;
 
     private int reps;
-
-
 }

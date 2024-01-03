@@ -6,12 +6,13 @@ import lombok.*;
 
 import java.util.List;
 
-
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -26,6 +27,4 @@ public class User {
 
     @OneToMany(mappedBy = "createdBy")
     private List<Plan> createdPlans;
-
-
 }

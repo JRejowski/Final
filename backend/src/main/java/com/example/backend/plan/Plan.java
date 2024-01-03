@@ -7,12 +7,13 @@ import lombok.*;
 
 import java.util.List;
 
-
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
+@Table(name = "plans")
 public class Plan {
 
     @Id
@@ -27,8 +28,6 @@ public class Plan {
     @JoinColumn(name = "created_by")
     private User createdBy;
 
-    @OneToMany(mappedBy = "plan")
+    @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PlanDetails> planDetails;
-
-
 }
