@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="03d0e801-4983-4aed-bdc1-81bae6fc0b5d" name="backend/Hibernate Mapping">
+      <data-sources db="3612b59d-57c2-4014-ba03-143f47ac0402" />
+      <scope>
+        <node kind="database" qname="postgres" />
+      </scope>
+    </mapping>
+  </component>
+</project>
