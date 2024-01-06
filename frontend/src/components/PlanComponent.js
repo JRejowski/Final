@@ -1,14 +1,16 @@
 import React from 'react';
-import "../css/planComponent.css"
+import { Link } from 'react-router-dom';
+import "../css/planComponent.css";
 
-const PlanComponent = ({ name, creator}) => {
+const PlanComponent = ({ id, name, creator }) => {
     return (
         <div className="plan">
-            <h2>{name}</h2>
+            <Link className="link-to-plan" to={`/plan/${id}`}>
+                <h2>{name}</h2>
+            </Link>
             <p>Creator: {creator}</p>
         </div>
     );
 };
 
 export default PlanComponent;
-

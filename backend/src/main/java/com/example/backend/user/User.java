@@ -1,6 +1,7 @@
 package com.example.backend.user;
 
 import com.example.backend.plan.Plan;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class User {
 
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "createdBy")
     private List<Plan> createdPlans;
 }

@@ -2,6 +2,7 @@ package com.example.backend.plan;
 
 import com.example.backend.plan_details.PlanDetails;
 import com.example.backend.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,6 +29,7 @@ public class Plan {
     @JoinColumn(name = "created_by")
     private User createdBy;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PlanDetails> planDetails;
 }
