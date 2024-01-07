@@ -22,11 +22,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Przezroczyste tło */
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /* Wysoki indeks zabezpiecza przed zasłanianiem przez inne elementy */
+    z-index: 1000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -51,23 +51,23 @@ body {
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
-    border-radius: 5px; /* Zaokrąglone rogi */
+    border-radius: 5px;
     font-weight: bold;
 }
 
 .button-secondary {
-    background-color: #ccc; /* Kolor tła dla buttona sekundarnego */
-    color: #333; /* Kolor tekstu dla buttona sekundarnego */
+    background-color: #ccc;
+    color: #333;
 }
 
 .button-danger {
-    background-color: #ff5f5f; /* Kolor tła dla buttona niebezpiecznego (usuwanie) */
-    color: white; /* Kolor tekstu dla buttona niebezpiecznego (usuwanie) */
+    background-color: #ff5f5f;
+    color: white;
 }
 
 .button-primary {
-    background-color: #4caf50; /* Kolor tła dla buttona pierwotnego (zapisz, potwierdź) */
-    color: white; /* Kolor tekstu dla buttona pierwotnego (zapisz, potwierdź) */
+    background-color: #4caf50;
+    color: white;
 }
 
 .my-plans{
@@ -86,8 +86,8 @@ body {
     border-radius: 1em;
     margin-bottom: 10px;
     padding: 1em;
-    display: flex; /* Dodaj display flex, aby elementy były ustawione w jednej linii */
-    align-items: center; /* Wyśrodkuj wertykalnie */
+    display: flex;
+    align-items: center;
 }
 
 .plan-list-item a {

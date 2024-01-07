@@ -12,15 +12,19 @@ p{
     margin-right: 0.5em;
 }
 
+p>strong{
+    font-size: 1.3em;
+}
+
 .exercise-link{
     color:#E4E6EB;
     text-decoration: none;
-    transition: color 0.1s ease-in-out; /* Dodaj efekt przejścia dla koloru */
+    transition: color 0.2s ease-in-out;
 
 }
 
 .exercise-link:hover {
-    color: #00bcd4; /* Zmiana koloru przy hoverze */
+    color: #00bcd4;
 }
 
 

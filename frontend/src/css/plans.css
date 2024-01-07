@@ -39,6 +39,56 @@
     color: #E4E6EB;
 }
 
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5); /* Overlay background color and transparency */
+    z-index: 1050; /* Higher z-index to make sure it's on top of other elements */
 
+}
 
+.modal-dialog {
+    margin: 0;
+}
 
+.modal-content {
+    border: 2px solid white; /* Grubość i kolor obramowania */
+    border-radius: 8px; /* Zaokrąglenie rogów */
+    color: white; /* Kolor tekstu wewnątrz modala */
+}
+
+.modal-body {
+    padding: 20px; /* Add padding to the modal body */
+}
+
+.modal-body label {
+    color: white; /* Kolor tekstu etykiety */
+}
+
+/* Styl dla tekstu w przyciskach w stopce modala */
+.modal-footer button {
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #ccc;
+    color: #333; /* Kolor tekstu przycisków */
+
+}
+
+.modal-footer button:hover {
+    background-color: #545556; /* Kolor tła przycisków po najechaniu */
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-check-input{
+    width:1em;
+}

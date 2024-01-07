@@ -73,11 +73,11 @@ function Exercises() {
                 <ul className="exercises-list">
                     {exercises.map((exercise, index) => (
                         <li key={index}>
-                            <p><strong>Name:</strong><Link className='exercise-link' to={`/exercises/${exercise.name}`}>{exercise.name}</Link> </p>
-                            <p><strong>Type:</strong> {exercise.type}</p>
-                            <p><strong>Muscle:</strong> {exercise.muscle}</p>
-                            <p><strong>Equipment:</strong> {exercise.equipment}</p>
-                            <p><strong>Difficulty:</strong> {exercise.difficulty}</p>
+                            <p><strong>Name: </strong><Link className='exercise-link' to={`/exercises/${exercise.name}`}>{exercise.name}</Link> </p>
+                            <p><strong>Type: </strong> {exercise.type}</p>
+                            <p><strong>Muscle: </strong> {exercise.muscle}</p>
+                            <p><strong>Equipment: </strong> {exercise.equipment}</p>
+                            <p><strong>Difficulty: </strong> {exercise.difficulty}</p>
                         </li>
                     ))}
                 </ul>
