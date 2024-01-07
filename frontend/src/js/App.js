@@ -23,7 +23,7 @@ function App() {
             <Route path="/user" element={<User/>}/>
             <Route path="/user-settings" element={<Settings/>}/>
             <Route path="/user-plans" element={<UserPlans/>}/>
-            <Route path="/plan/:id" element={<Plan/>}/>
+            <Route path="/plan/:planId" element={<Plan/>}/>
 
         </Routes>
       </BrowserRouter>

@@ -3,8 +3,6 @@ package com.example.backend.plan_details;
 import com.example.backend.plan.Plan;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Getter
 @Setter
@@ -28,4 +26,6 @@ public class PlanDetails {
     private int sets;
 
     private int reps;
+
+    private int rest;
 }

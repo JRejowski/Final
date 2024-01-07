@@ -15,11 +15,18 @@ p{
 .exercise-link{
     color:#E4E6EB;
     text-decoration: none;
+    transition: color 0.1s ease-in-out; /* Dodaj efekt przejścia dla koloru */
 
 }
+
+.exercise-link:hover {
+    color: #00bcd4; /* Zmiana koloru przy hoverze */
+}
+
 
 .pickers{
     display: grid;
     grid-template-columns: repeat(3, 1fr) ;
 }
+
 

@@ -22,7 +22,7 @@ ul>li{
     margin:auto 1em;
     display: flex;
 }
-.button{
+.button-nav{
     font-family: "Cooper Black", sans-serif ;
     border: 1px solid #E4E6EB;
     border-radius: 1em;

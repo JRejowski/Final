@@ -31,4 +31,8 @@ public class PlanDetailsService {
     public void deletePlanDetails(Long planDetailsId) {
         planDetailsRepository.deleteById(planDetailsId);
     }
+
+    public List<PlanDetails> getPlanDetailsByPlanId(Long planId) {
+        return planDetailsRepository.findByPlanId(planId);
+    }
 }

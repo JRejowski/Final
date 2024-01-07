@@ -1,0 +1,33 @@
+
+.plan-name {
+    font-family: "Cooper Black", sans-serif ;
+    color: #E4E6EB;
+    text-align: center;
+}
+
+.plan-table {
+    margin: auto;
+    width: 90%;
+    border-collapse: collapse;
+
+}
+
+.plan-table th,
+.plan-table td {
+    font-family: "Cooper Black", sans-serif ;
+    padding: 10px;
+    border: 1px solid #3A3B3C;
+    text-align: center;
+    color: #E4E6EB;
+}
+
+.plan-table th {
+    font-family: "Cooper Black", sans-serif ;
+    background-color: #3A3B3C;
+    color: #E4E6EB;
+}
+
+.link-to-exercise{
+    text-decoration: none;
+    color: #E4E6EB;
+}

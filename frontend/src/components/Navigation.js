@@ -19,15 +19,15 @@ function Navigation() {
         <ul>
             <li>
                 <FontAwesomeIcon icon={faClipboard} className="icon" />
-                <Link className="button" to="/plans">Plans</Link>
+                <Link className="button-nav" to="/plans">Plans</Link>
             </li>
             <li>
                 <FontAwesomeIcon icon={faWeightHanging} className="icon" />
-                <Link className="button" to="/exercises">Exercises</Link>
+                <Link className="button-nav" to="/exercises">Exercises</Link>
             </li>
             <li>
                 <FontAwesomeIcon icon={faUser} className="icon" />
-                <Link className="button" to="/user">User</Link>
+                <Link className="button-nav" to="/user">User</Link>
             </li>
 
         </ul>

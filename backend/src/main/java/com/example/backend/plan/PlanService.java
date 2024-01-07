@@ -32,4 +32,7 @@ public class PlanService {
         planRepository.deleteById(planId);
     }
 
+    public List<Plan> getPlansByUserId(Long userId) {
+        return planRepository.findByCreatedBy_Id(userId);
+    }
 }

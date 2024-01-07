@@ -1,0 +1,111 @@
+body {
+    font-family: "Cooper Black", sans-serif;
+}
+
+.modal {
+
+    text-align: center;
+
+}
+
+.modal .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+
+}
+
+.modal-overlay {
+    color: #e4e6eb;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Przezroczyste tło */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Wysoki indeks zabezpiecza przed zasłanianiem przez inne elementy */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: #3A3B3C;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.button {
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px; /* Zaokrąglone rogi */
+    font-weight: bold;
+}
+
+.button-secondary {
+    background-color: #ccc; /* Kolor tła dla buttona sekundarnego */
+    color: #333; /* Kolor tekstu dla buttona sekundarnego */
+}
+
+.button-danger {
+    background-color: #ff5f5f; /* Kolor tła dla buttona niebezpiecznego (usuwanie) */
+    color: white; /* Kolor tekstu dla buttona niebezpiecznego (usuwanie) */
+}
+
+.button-primary {
+    background-color: #4caf50; /* Kolor tła dla buttona pierwotnego (zapisz, potwierdź) */
+    color: white; /* Kolor tekstu dla buttona pierwotnego (zapisz, potwierdź) */
+}
+
+.my-plans{
+    font-size: 2em;
+}
+
+.plan-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.plan-list-item {
+    border: 1px solid #e4e6eb;
+    border-radius: 1em;
+    margin-bottom: 10px;
+    padding: 1em;
+    display: flex; /* Dodaj display flex, aby elementy były ustawione w jednej linii */
+    align-items: center; /* Wyśrodkuj wertykalnie */
+}
+
+.plan-list-item a {
+    text-decoration: none;
+    font-family: "Cooper Black", sans-serif;
+    color: #e4e6eb;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.plan-list-item .icons-container {
+    display: flex;
+    gap: 10px;
+    font-size: 1.5em; /* Nowy rozmiar ikon */
+}
+
+
+.plan-list-item a:hover {
+    color: #00bcd4;
+}
+

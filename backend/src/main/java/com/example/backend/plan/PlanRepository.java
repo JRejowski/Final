@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface PlanRepository extends JpaRepository<Plan, Long> {
 
+    List<Plan> findByCreatedBy_Id(Long userId);
+
 }
 

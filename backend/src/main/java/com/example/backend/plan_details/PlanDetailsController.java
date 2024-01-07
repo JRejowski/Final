@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/plan-details")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PlanDetailsController {
 
     private final PlanDetailsService planDetailsService;
@@ -19,17 +20,10 @@ public class PlanDetailsController {
         this.planDetailsService = planDetailsService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<PlanDetails>> getAllPlanDetails() {
-        List<PlanDetails> planDetails = planDetailsService.getAllPlanDetails();
+    @GetMapping("/plan/{planId}")
+    public ResponseEntity<List<PlanDetails>> getPlanDetailsByPlanId(@PathVariable Long planId) {
+        List<PlanDetails> planDetails = planDetailsService.getPlanDetailsByPlanId(planId);
         return new ResponseEntity<>(planDetails, HttpStatus.OK);
-    }
-
-    @GetMapping("/{planDetailsId}")
-    public ResponseEntity<PlanDetails> getPlanDetailsById(@PathVariable Long planDetailsId) {
-        Optional<PlanDetails> planDetails = planDetailsService.getPlanDetailsById(planDetailsId);
-        return planDetails.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
