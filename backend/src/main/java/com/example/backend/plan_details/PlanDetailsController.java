@@ -37,4 +37,13 @@ public class PlanDetailsController {
         planDetailsService.deletePlanDetails(planDetailsId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PatchMapping("/{planDetailsId}")
+    public ResponseEntity<PlanDetails> updatePlanDetails(
+            @PathVariable Long planDetailsId,
+            @RequestBody PlanDetails updatedDetails
+    ) {
+        PlanDetails updatedPlanDetails = planDetailsService.updatePlanDetails(planDetailsId, updatedDetails);
+        return new ResponseEntity<>(updatedPlanDetails, HttpStatus.OK);
+    }
 }

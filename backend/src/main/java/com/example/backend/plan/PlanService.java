@@ -28,6 +28,7 @@ public class PlanService {
         return planRepository.save(plan);
     }
 
+
     public void deletePlan(Long planId) {
         planRepository.deleteById(planId);
     }

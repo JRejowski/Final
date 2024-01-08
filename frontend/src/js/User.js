@@ -10,7 +10,6 @@ function User(){
                 <h1>User panel</h1>
                 <div className="user-buttons">
                     <Link className="user-button" to="/user-plans">My plans</Link>
-                    <Link className="user-button" to="/user-settings">Settings</Link>
                     <Link className="user-button" to="/login">Logout</Link>
                 </div>
             </section>

@@ -16,7 +16,7 @@ function UserPlans() {
     useEffect(() => {
         const fetchUserPlans = async () => {
             try {
-                const userId = 1;
+                const userId = 1; //TODO pobieranie id usera z cache
                 const response = await fetch(`http://localhost:8080/api/plans/user/${userId}`);
 
                 if (!response.ok) {

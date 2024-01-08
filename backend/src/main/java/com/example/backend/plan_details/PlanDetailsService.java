@@ -28,11 +28,25 @@ public class PlanDetailsService {
         return planDetailsRepository.save(planDetails);
     }
 
+
     public void deletePlanDetails(Long planDetailsId) {
         planDetailsRepository.deleteById(planDetailsId);
     }
 
     public List<PlanDetails> getPlanDetailsByPlanId(Long planId) {
         return planDetailsRepository.findByPlanId(planId);
+    }
+
+    public PlanDetails updatePlanDetails(Long planDetailsId, PlanDetails updatedDetails) {
+        PlanDetails planDetails = planDetailsRepository.findById(planDetailsId)
+                .orElseThrow(() -> new RuntimeException("PlanDetails not found with id: " + planDetailsId));
+
+        planDetails.setSets(updatedDetails.getSets());
+        planDetails.setReps(updatedDetails.getReps());
+        planDetails.setRest(updatedDetails.getRest());
+
+        // If you want to update other fields as well, add more setters
+
+        return planDetailsRepository.save(planDetails);
     }
 }
