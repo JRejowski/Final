@@ -12,6 +12,8 @@ function Plans() {
     const [showModal, setShowModal] = useState(false);
     const [newPlanName, setNewPlanName] = useState('');
     const [isPublic, setIsPublic] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
+
 
     useEffect(() => {
         // Fetch plans from the API
@@ -61,10 +63,18 @@ function Plans() {
                         <FontAwesomeIcon icon={faClipboard} className="icon-clipboard" />
                     </div>
                 </div>
+                <div className="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Search plans..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
                 <section className="plans">
                     {plans && plans.length > 0 ? (
                         plans
-                            .filter((plan) => plan.public)
+                            .filter((plan) => plan.public && plan.name.toLowerCase().includes(searchTerm.toLowerCase()))
                             .map((plan) => (
                                 <PlanComponent
                                     key={plan.id}

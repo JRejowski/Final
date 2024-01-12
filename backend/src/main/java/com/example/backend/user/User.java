@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @Getter
@@ -29,4 +30,5 @@ public class User {
     @JsonIgnore
     @OneToMany(mappedBy = "createdBy")
     private List<Plan> createdPlans;
+
 }

@@ -35,3 +35,10 @@
 .controls{
     width:5%;
 }
+
+.nothing-to-show{
+    text-align: center;
+    color: #E4E6EB;
+    font-size: 1.5em;
+
+}
