@@ -9,7 +9,7 @@ function Register(){
         <div className="container">
             <div className="name-main">
                 <Link to="/"><FontAwesomeIcon icon={faDumbbell} className="logo-big"/></Link>
-                <Link className="link-big" to="/">GymPlaner</Link>
+                <Link className="link-big" to="/login">GymPlaner</Link>
             </div>
             <RegisterContainer/>
         </div>

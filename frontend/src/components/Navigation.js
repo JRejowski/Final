@@ -15,7 +15,7 @@ function Navigation() {
     <div className="base">
         <div className="name">
             <Link to="/"><FontAwesomeIcon icon={faDumbbell} className="logo"/></Link>
-            <Link className="link" to="/">GymPlaner</Link>
+            <Link className="link" to="/home">GymPlaner</Link>
         </div>
         <ul>
             <li>
