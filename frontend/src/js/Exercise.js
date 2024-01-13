@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation";
 import { useParams } from 'react-router-dom';
 import '../css/exercise.css';
 import {Button, Form, Modal} from "react-bootstrap";
+import {jwtDecode} from 'jwt-decode';
 
 function Exercise() {
     const { name } = useParams();
@@ -47,7 +48,25 @@ function Exercise() {
         };
         const fetchUserPlans = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/plans/user/1`);
+                // Pobieranie tokena JWT z localStorage
+                const token = localStorage.getItem('jwtToken');
+                if (!token) {
+                    console.error('No token found');
+                    return;
+                }
+
+                // Dekodowanie tokena JWT, aby uzyskać ID użytkownika
+                const decodedToken = jwtDecode(token);
+                const userId = decodedToken.userId; // Zakładając, że ID jest przechowywane pod kluczem 'userId'
+
+                const config = {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                };
+
+                // Teraz możesz użyć userId w zapytaniu do API
+                const response = await axios.get(`http://localhost:8080/api/plans/user/${userId}`, config);
                 setUserPlans(response.data);
             } catch (error) {
                 console.error('Error fetching user plans:', error);
@@ -99,6 +118,7 @@ function Exercise() {
 
 
         try {
+            const token = localStorage.getItem('jwtToken');
             // Wyślij dane szczegółów planu do backendu
             const response = await axios.post('http://localhost:8080/api/plan-details', {
                 plan: {id: planId,},
@@ -106,7 +126,13 @@ function Exercise() {
                 reps,
                 sets,
                 rest,
-            });
+            },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`, // Replace 'yourAuthToken' with the actual token variable
+                        // You can add other headers here if needed
+                    }
+                });
 
             console.log('Exercise added to plan:', response.data);
             // Zamknij modal po dodaniu ćwiczenia do planu
@@ -120,7 +146,7 @@ function Exercise() {
     if (!exerciseDetails) {
         return <p>Loading...</p>;
     }
-    //TODO jak nie jesteś zalogowany to button do dodawania sie nie wyświetla
+
     return (
         <div className="base-container">
             <Navigation />

@@ -10,7 +10,6 @@ import {Link} from "react-router-dom";
 
 function Navigation() {
 
-    //TODO trzeba zrobić tak że jak jesteś zalogowany to idziesz do /user a jak nie to do logowania
     return(
     <div className="base">
         <div className="name">

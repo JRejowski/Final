@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
 import PlanComponent from '../components/PlanComponent';
 import '../css/plans.css';
+import { jwtDecode } from 'jwt-decode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import { Modal, Button, Form } from 'react-bootstrap';
@@ -14,42 +15,69 @@ function Plans() {
     const [isPublic, setIsPublic] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
 
-
     useEffect(() => {
-        // Fetch plans from the API
-        fetch('http://localhost:8080/api/plans')
-            .then((response) => response.json())
-            .then((data) => setPlans(data))
-            .catch((error) => console.error('Error fetching plans:', error));
+        const token = localStorage.getItem('jwtToken'); // Pobierz token JWT z localStorage
+
+        if (token) {
+            fetch('http://localhost:8080/api/plans', {
+                headers: {
+                    'Authorization': `Bearer ${token}` // Dołącz token JWT do nagłówka żądania
+                }
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then((data) => setPlans(data))
+                .catch((error) => console.error('Error fetching plans:', error));
+        } else {
+            console.error('No JWT token found in localStorage');
+        }
     }, []);
 
-    const handleCreatePlan = () => {
-        const currentUser = {
-            id: 1,
-            login: 'qwe',
-            //TODO: Tu pobieranie info o użytkowniku z cache czy coś
-        };
-        const newPlan = {
-            name: newPlanName,
-            public: isPublic,
-            createdBy: currentUser,
-        };
+    const handleCreatePlan = async () => {
+        try {
+            const token = localStorage.getItem('jwtToken');
+            if (!token) {
+                console.error('No token found');
+                return;
+            }
 
-        fetch('http://localhost:8080/api/plans', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newPlan),
-        })
-            .then((response) => response.json())
-            .then((createdPlan) => {
-                // Dodaj nowo utworzony plan do stanu plans
-                setPlans([...plans, createdPlan]);
-                // Zamknij modal po utworzeniu planu
-                setShowModal(false);
-            })
-            .catch((error) => console.error('Error creating plan:', error));
+            // Dekodowanie tokena JWT, aby uzyskać informacje o użytkowniku
+            const decodedToken = jwtDecode(token);
+            const currentUser = {
+                id: decodedToken.userId,  // Zakładając, że ID użytkownika jest przechowywane jako 'userId'
+                login: decodedToken.login // Zakładając, że login użytkownika jest przechowywany jako 'login'
+            };
+            const newPlan = {
+                name: newPlanName,
+                public: isPublic,
+                createdBy: currentUser,
+            };
+            const response = await fetch('http://localhost:8080/api/plans', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                mode: "cors",
+                method: 'POST',
+                body: JSON.stringify(newPlan),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const createdPlan = await response.json();
+            // Dodaj nowo utworzony plan do stanu plans
+            setPlans([...plans, createdPlan]);
+            // Zamknij modal po utworzeniu planu
+            setShowModal(false);
+        } catch (error) {
+            console.error('Error creating plan:', error);
+        }
     };
 
     return (

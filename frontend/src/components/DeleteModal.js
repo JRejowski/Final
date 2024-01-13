@@ -5,9 +5,11 @@ import '../css/modals.css'
 const DeleteModal = ({ isOpen, onClose, onDeleteDetails, selectedDetailId }) => {
     const handleDelete = async () => {
         try {
+            const token = localStorage.getItem('jwtToken');
             // Call the backend API to delete details
             const response = await fetch(`http://localhost:8080/api/plan-details/${selectedDetailId}`, {
                 method: 'DELETE',
+                headers: {'Authorization': `Bearer ${token}`}
             });
 
             if (!response.ok) {

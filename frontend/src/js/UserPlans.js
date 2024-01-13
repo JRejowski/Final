@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
+import {jwtDecode} from 'jwt-decode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import '../css/userPlans.css';
@@ -16,15 +17,27 @@ function UserPlans() {
     useEffect(() => {
         const fetchUserPlans = async () => {
             try {
-                const userId = 1; //TODO pobieranie id usera z cache
-                const response = await fetch(`http://localhost:8080/api/plans/user/${userId}`);
+                const token = localStorage.getItem('jwtToken');
+                if (token) {
+                    const decodedToken = jwtDecode(token);
+                    const userId = decodedToken.userId; // lub inna właściwość w zależności od struktury Twojego tokena
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+                    // Teraz możesz użyć userId w zapytaniu do API
+                    const response = await fetch(`http://localhost:8080/api/plans/user/${userId}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    setUserPlans(data);
+                } else {
+                    console.error('No token found');
                 }
-
-                const data = await response.json();
-                setUserPlans(data);
             } catch (error) {
                 console.error('Error fetching user plans:', error);
             }
@@ -32,6 +45,7 @@ function UserPlans() {
 
         fetchUserPlans();
     }, []);
+
 
     const handleDeletePlan = (planId, planName) => {
         setSelectedPlan({ id: planId, name: planName });
@@ -46,8 +60,12 @@ function UserPlans() {
 
     const handleConfirmDelete = async () => {
         try {
+            const token = localStorage.getItem('jwtToken');
             const response = await fetch(`http://localhost:8080/api/plans/${selectedPlan.id}`, {
                 method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}` // Dołącz token JWT do nagłówka żądania
+                }
             });
 
             if (!response.ok) {
@@ -65,10 +83,12 @@ function UserPlans() {
 
     const handleConfirmEdit = async () => {
         try {
+            const token = localStorage.getItem('jwtToken');
             const response = await fetch(`http://localhost:8080/api/plans/${selectedPlan.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Dołącz token JWT do nagłówka żądania
                 },
                 body: JSON.stringify({ name: newPlanName }),
             });

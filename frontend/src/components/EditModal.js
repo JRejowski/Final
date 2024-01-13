@@ -10,11 +10,12 @@ const EditModal = ({ isOpen, onClose, onUpdateDetails, selectedDetailId }) => {
     const handleUpdate = async () => {
         try {
             // Perform any validation if needed
-
+            const token = localStorage.getItem('jwtToken');
             // Call the backend API to update details
             const response = await fetch(`http://localhost:8080/api/plan-details/${selectedDetailId}`, {
                 method: 'PATCH',
                 headers: {
+                    'Authentication': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({

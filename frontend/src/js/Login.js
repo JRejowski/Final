@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faDumbbell} from "@fortawesome/free-solid-svg-icons";
 
 function Login(){
-    //TODO obsługa logowania
+
     return (
         <div className="container">
             <div className="name-main">
