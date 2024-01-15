@@ -12,3 +12,20 @@
     text-align: center;
 }
 
+.information>p{
+    color: #E4E6EB;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.information{
+    margin-top: 5em;
+}
+.links{
+    color: #E4E6EB;
+}
+
+.links:hover{
+    transition: color 0.2s ease-in-out;
+    color:#00bcd4;
+}
