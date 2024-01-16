@@ -23,7 +23,6 @@ function App() {
             <Route path="/user" element={<User/>}/>
             <Route path="/user-plans" element={<UserPlans/>}/>
             <Route path="/plan/:planId" element={<Plan/>}/>
-
         </Routes>
       </BrowserRouter>
   );

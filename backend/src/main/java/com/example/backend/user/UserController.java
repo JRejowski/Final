@@ -14,13 +14,10 @@ import java.util.Optional;
 public class UserController {
 
     private final UserService userService;
-
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
-
     }
-
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
@@ -33,6 +30,4 @@ public class UserController {
         return user.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
-
 }

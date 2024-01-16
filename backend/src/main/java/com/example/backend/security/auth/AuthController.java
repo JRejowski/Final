@@ -44,13 +44,10 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Passwords do not match!");
         }
 
-        // Tworzenie użytkownika
         User user = new User();
         user.setLogin(registerRequest.getLogin());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-
-        // Zapisz użytkownika
         User result = userRepository.save(user);
 
         return ResponseEntity.ok(result);
@@ -67,7 +64,6 @@ public class AuthController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        // Generuj token JWT
         String jwt = tokenProvider.generateToken((UserDetails) authentication.getPrincipal());
 
         return ResponseEntity.ok(jwt);

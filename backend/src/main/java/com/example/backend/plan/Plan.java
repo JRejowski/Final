@@ -33,3 +33,4 @@ public class Plan {
     @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PlanDetails> planDetails;
 }
+
