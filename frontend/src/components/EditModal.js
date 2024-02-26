@@ -15,7 +15,7 @@ const EditModal = ({ isOpen, onClose, onUpdateDetails, selectedDetailId }) => {
             const response = await fetch(`http://localhost:8080/api/plan-details/${selectedDetailId}`, {
                 method: 'PATCH',
                 headers: {
-                    'Authentication': `Bearer ${token}`,
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
@@ -37,7 +37,7 @@ const EditModal = ({ isOpen, onClose, onUpdateDetails, selectedDetailId }) => {
             // Close the modal
             onClose();
         } catch (error) {
-            console.error('Error updating plan details:', error);
+
         }
     };
 

@@ -54,14 +54,14 @@ function Plan() {
                 setPlan(planInfo);
                 setPlanCreator(planInfo.createdBy.id)
             } catch (error) {
-                console.error('Error fetching plan details:', error);
+
             }
         };
 
         if (planId) {
             fetchPlanData();
         } else {
-            console.error('Plan ID is undefined');
+
         }
     }, [planId]);
 

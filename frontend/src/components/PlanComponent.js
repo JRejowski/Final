@@ -8,7 +8,7 @@ const PlanComponent = ({ id, name, creator }) => {
             <Link className="link-to-plan" to={`/plan/${id}`}>
                 <h2>{name}</h2>
             </Link>
-            <p>Creator: {creator}</p>
+            <p className="plan-creator">Creator: {creator}</p>
         </div>
     );
 };

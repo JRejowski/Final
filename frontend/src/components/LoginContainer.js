@@ -32,10 +32,9 @@ function LoginContainer() {
             // Przekierowanie do /home
             navigate("/home");
 
-            console.log("Login successful");
+
         } catch (error) {
-            console.error("Login failed:", error.response.data);
-            // Obsługa błędu logowania
+
         }
     };
 

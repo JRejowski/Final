@@ -31,9 +31,9 @@ function Plans() {
                     return response.json();
                 })
                 .then((data) => setPlans(data))
-                .catch((error) => console.error('Error fetching plans:', error));
+                .catch();
         } else {
-            console.error('No JWT token found in localStorage');
+
         }
     }, []);
 
@@ -41,7 +41,7 @@ function Plans() {
         try {
             const token = localStorage.getItem('jwtToken');
             if (!token) {
-                console.error('No token found');
+
                 return;
             }
 
@@ -76,7 +76,7 @@ function Plans() {
             // Zamknij modal po utworzeniu planu
             setShowModal(false);
         } catch (error) {
-            console.error('Error creating plan:', error);
+
         }
     };
 
@@ -85,7 +85,7 @@ function Plans() {
             <Navigation />
             <div className="content">
                 <div className="top">
-                    <h1>Plans</h1>
+                    <h1 className="plans-title">Plans</h1>
                     <div className="new-plan" onClick={() => setShowModal(true)}>
                         <h2>Create new plan</h2>
                         <FontAwesomeIcon icon={faClipboard} className="icon-clipboard" />

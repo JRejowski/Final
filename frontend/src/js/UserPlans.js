@@ -20,9 +20,8 @@ function UserPlans() {
                 const token = localStorage.getItem('jwtToken');
                 if (token) {
                     const decodedToken = jwtDecode(token);
-                    const userId = decodedToken.userId; // lub inna właściwość w zależności od struktury Twojego tokena
+                    const userId = decodedToken.userId;
 
-                    // Teraz możesz użyć userId w zapytaniu do API
                     const response = await fetch(`http://localhost:8080/api/plans/user/${userId}`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
@@ -36,10 +35,10 @@ function UserPlans() {
                     const data = await response.json();
                     setUserPlans(data);
                 } else {
-                    console.error('No token found');
+
                 }
             } catch (error) {
-                console.error('Error fetching user plans:', error);
+
             }
         };
 
@@ -74,7 +73,7 @@ function UserPlans() {
 
             setUserPlans((prevPlans) => prevPlans.filter((plan) => plan.id !== selectedPlan.id));
         } catch (error) {
-            console.error('Error deleting plan:', error);
+
         } finally {
             setShowDeleteModal(false);
             setSelectedPlan(null);
@@ -88,7 +87,7 @@ function UserPlans() {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Dołącz token JWT do nagłówka żądania
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({ name: newPlanName }),
             });
@@ -103,7 +102,7 @@ function UserPlans() {
                 )
             );
         } catch (error) {
-            console.error('Error updating plan name:', error);
+
         } finally {
             setShowEditModal(false);
             setSelectedPlan(null);

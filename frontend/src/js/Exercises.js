@@ -36,7 +36,7 @@ function Exercises() {
                 const response = await axios.request(options);
                 setExercises(response.data);
             } catch (error) {
-                console.error('Error fetching exercises:', error);
+
             }
         };
 

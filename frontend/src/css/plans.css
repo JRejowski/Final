@@ -13,10 +13,14 @@
 }
 
 .top>h1{
-    margin: 0 0 0 31.5em;
+    margin: 0 0 0 20em;
     font-family: "Cooper Black", sans-serif ;
     color: #E4E6EB;
     text-align: center;
+}
+
+.plans-title{
+    font-size: 3em;
 }
 
 .icon-clipboard{
@@ -46,6 +50,7 @@
     border: 1px solid #E4E6EB;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 2em;
 
 }
 

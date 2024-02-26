@@ -22,7 +22,7 @@ const DeleteModal = ({ isOpen, onClose, onDeleteDetails, selectedDetailId }) => 
             // Close the modal
             onClose();
         } catch (error) {
-            console.error('Error deleting plan details:', error);
+
         }
     };
 

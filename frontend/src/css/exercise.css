@@ -12,7 +12,7 @@
 }
 
 .exercise-details>p{
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .add-to-plan-button {
@@ -23,7 +23,7 @@
 .add-to-plan-button button {
     font-family: "Cooper Black", sans-serif ;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1.7em;
     background-color: #545556;
     color: white;
     border: none;

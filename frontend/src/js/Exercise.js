@@ -19,7 +19,7 @@ function Exercise() {
     useEffect(() => {
         const fetchExerciseDetails = async () => {
             if (!name) {
-                console.error('Exercise name not provided. Name:', name);
+
                 return;
             }
 
@@ -34,16 +34,16 @@ function Exercise() {
 
             try {
                 const response = await axios.request(options);
-                console.log('Response from API:', response.data);
+
 
                 if (response.data.length > 0) {
                     // Jeśli są dane, ustaw pierwszy element jako szczegóły ćwiczenia
                     setExerciseDetails(response.data[0]);
                 } else {
-                    console.error('No exercise details found for:', name);
+
                 }
             } catch (error) {
-                console.error('Error fetching exercise details:', error);
+
             }
         };
         const fetchUserPlans = async () => {
@@ -51,7 +51,7 @@ function Exercise() {
                 // Pobieranie tokena JWT z localStorage
                 const token = localStorage.getItem('jwtToken');
                 if (!token) {
-                    console.error('No token found');
+
                     return;
                 }
 
@@ -69,7 +69,7 @@ function Exercise() {
                 const response = await axios.get(`http://localhost:8080/api/plans/user/${userId}`, config);
                 setUserPlans(response.data);
             } catch (error) {
-                console.error('Error fetching user plans:', error);
+
             }
         };
 
@@ -107,11 +107,10 @@ function Exercise() {
     const addExerciseToSelectedPlan = async () => {
 
         if (!selectedPlan) {
-            console.error('No plan selected.');
+
             return;
         }
 
-        console.log('Selected Plan:', selectedPlan);
 
         const exerciseName = exerciseDetails.name;
         const planId =selectedPlan;
@@ -134,11 +133,10 @@ function Exercise() {
                     }
                 });
 
-            console.log('Exercise added to plan:', response.data);
-            // Zamknij modal po dodaniu ćwiczenia do planu
+
             setShowModal(false);
         } catch (error) {
-            console.error('Error adding exercise to plan:', error);
+
         }
     };
 
@@ -180,7 +178,7 @@ function Exercise() {
                         <Form.Group>
                             <Form.Label>Select Plan:</Form.Label>
                             <select onChange={handlePlanChange} value={selectedPlan}>
-                                <option value="" disabled>Select a Plan</option>
+                                <option value="">Select a Plan</option>
                                 {userPlans.map((plan) => (
                                     <option key={plan.id} value={plan.id}>
                                         {plan.name}
@@ -222,7 +220,7 @@ function Exercise() {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={addExerciseToSelectedPlan}>
-                        Add to Selected Plans
+                        Add to Selected Plan
                     </Button>
                     <Button variant="secondary" onClick={() => setShowModal(false)}>
                         Cancel

@@ -23,11 +23,9 @@ function RegisterContainer() {
 
         try {
             const response = await axios.post("http://localhost:8080/api/auth/register", formData);
-            console.log("Registration successful:", response.data);
-            // Tutaj możesz przekierować użytkownika na inną stronę po udanej rejestracji
+
         } catch (error) {
-            console.error("Registration failed:", error.response.data);
-            // Tutaj możesz obsłużyć błąd rejestracji, np. wyświetlić komunikat użytkownikowi
+
         }
     };
 
